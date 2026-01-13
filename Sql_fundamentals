@@ -1,0 +1,179 @@
+# Introduction to SQL
+
+SQL (Structured Query Language) is the standard language used to interact
+with relational databases.
+
+This document introduces the purpose of SQL and how it is used in
+data analytics, data engineering, and backend systems.
+
+
+
+
+
+
+
+# What is SQL?
+
+SQL stands for Structured Query Language.  
+It is used to:
+- Store data
+- Retrieve data
+- Update data
+- Delete data
+
+## What is a Database?
+A database is an organized collection of data stored electronically
+and managed by a Database Management System (DBMS).
+
+### Examples of Databases
+- MySQL
+- PostgreSQL
+- SQL Server
+- Oracle
+
+
+
+
+
+
+
+
+
+# DBMS and SQL Server
+
+## DBMS
+A Database Management System (DBMS) is software that:
+- Manages databases
+- Handles data storage
+- Controls access and security
+
+Examples:
+- MySQL
+- PostgreSQL
+- Oracle
+- SQL Server
+
+## SQL Server
+SQL Server is a relational DBMS developed by Microsoft.
+It supports T-SQL (Transact-SQL) for querying and managing data.
+
+
+
+
+
+
+
+
+
+
+
+
+# Types of Databases
+
+## Relational Databases
+- Store data in tables
+- Use SQL
+- Examples: MySQL, PostgreSQL, SQL Server
+
+## Non-Relational Databases
+- Store data as documents, key-value pairs, or graphs
+- Examples: MongoDB, Redis, Cassandra
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Types of SQL Commands
+
+## DDL (Data Definition Language)
+- CREATE
+- ALTER
+- DROP
+- TRUNCATE
+
+## DML (Data Manipulation Language)
+- INSERT
+- UPDATE
+- DELETE
+
+## DQL (Data Query Language)
+- SELECT
+
+## DCL (Data Control Language)
+- GRANT
+- REVOKE
+
+## TCL (Transaction Control Language)
+- COMMIT
+- ROLLBACK
+- SAVEPOINT
+
+
+
+
+
+
+
+
+
+
+
+
+# Why Learn SQL?
+
+SQL is essential for:
+- Data Analysts
+- Business Analysts
+- Data Scientists
+- Backend Developers
+
+Benefits:
+- Easy to learn
+- Used across industries
+- Works with large datasets
+- Required for analytics and reporting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# SQL Learning Journey
+
+This repository documents my SQL learning journey,
+starting from SQL fundamentals and theory,
+and progressing toward advanced SQL querying.
+
+## Sections
+- SQL Fundamentals (Concepts & Theory)
+- SQL Query Practice (Coming next)
+
+## Tools
+- SQL Server
+- SSMS
+- SQL Terminal
+
+## Goal
+To build strong SQL fundamentals and advance toward
+interview-level and real-world SQL problem solving.
