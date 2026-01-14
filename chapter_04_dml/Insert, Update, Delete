@@ -1,0 +1,32 @@
+
+---INSERT (Add a new row)
+INSERT INTO staff_records
+VALUES (111, 'Rohit', 'Kumar', 'Finance', 'Junior Accountant', 52000, '2023-04-10');
+
+
+
+----INSERT (Specify columns)
+INSERT INTO staff_records (staff_id, first_name, team, monthly_salary, join_date)
+VALUES (112, 'Meera', 'Data', 68000, '2023-06-15');
+
+
+
+-----UPDATE (Single row)
+UPDATE staff_records
+SET monthly_salary = 75000
+WHERE staff_id = 101;
+
+
+
+----UPDATE (Multiple rows)
+UPDATE staff_records
+SET monthly_salary = monthly_salary + 3000
+WHERE team = 'Marketing';
+
+------DELETE (Specific row)
+DELETE FROM staff_records
+WHERE staff_id = 112;
+
+----DELETE (Condition-based)
+DELETE FROM staff_records
+WHERE monthly_salary < 55000;
