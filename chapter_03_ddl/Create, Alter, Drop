@@ -1,0 +1,40 @@
+-----CREATE DATABASE
+CREATE DATABASE ddl_practice;
+GO
+
+USE ddl_practice;
+GO
+
+
+----CREATE TABLE
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(50),
+    location VARCHAR(50)
+);
+---ALTER TABLE – Add Column
+ALTER TABLE departments
+ADD manager_name VARCHAR(50);
+
+
+---ALTER TABLE – Modify Column
+ALTER TABLE departments
+ALTER COLUMN department_name VARCHAR(100);
+
+
+
+-----ALTER TABLE – Drop 
+ALTER TABLE departments
+DROP COLUMN location;
+
+
+
+-----DROP TABLE
+DROP TABLE departments;
+
+
+USE master;
+GO
+
+----DROP DATABASE
+DROP DATABASE ddl_practice;
