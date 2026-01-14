@@ -1,1 +1,2 @@
+This chapter covers Data Manipulation Language (DML) commands used to insert, update, and delete data within database tables. It includes practical examples of INSERT statements for adding new records, UPDATE statements for modifying existing data, and DELETE statements for removing records. These commands are essential for managing and maintaining data after the database structure has been created.
 
