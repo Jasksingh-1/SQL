@@ -1,0 +1,93 @@
+----- Staff earning more than 60000
+SELECT *
+FROM staff_records
+WHERE monthly_salary > 60000;
+
+
+
+------ Staff not from Data team
+SELECT *
+FROM staff_records
+WHERE team != 'Data';
+
+
+-- Data team staff earning more than 70000
+SELECT *
+FROM staff_records
+WHERE team = 'Data'
+AND monthly_salary > 70000;
+
+
+
+
+-- Staff from HR or Finance teams
+SELECT *
+FROM staff_records
+WHERE team = 'HR'
+OR team = 'Finance';
+
+
+
+
+-- Staff not in Marketing team
+SELECT *
+FROM staff_records
+WHERE NOT team = 'Marketing';
+
+
+
+
+  -- Staff with salary between 60000 and 75000
+SELECT *
+FROM staff_records
+WHERE monthly_salary BETWEEN 60000 AND 75000;
+
+
+
+
+-------- Staff from selected teams
+SELECT *
+FROM staff_records
+WHERE team IN ('Data', 'Finance', 'HR');
+
+
+
+
+-- Staff whose first name starts with 'A'
+SELECT *
+FROM staff_records
+WHERE first_name LIKE 'A%';
+
+
+
+  -- Staff whose role contains 'Manager'
+SELECT *
+FROM staff_records
+WHERE role_title LIKE '%Manager%';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
