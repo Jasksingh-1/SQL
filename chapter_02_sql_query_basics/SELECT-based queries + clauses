@@ -56,3 +56,217 @@ ORDER BY emp_count DESC;
 -- 11. Aliases (Cool SQL Stuff)
 SELECT salary AS monthly_salary
 FROM employees;
+
+-----------------------------------------------------------------
+
+CREATE DATABASE analytics_practice;
+GO
+
+USE analytics_practice;
+GO
+CREATE TABLE staff_records (
+    staff_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    team VARCHAR(50),
+    role_title VARCHAR(50),
+    monthly_salary INT,
+    join_date DATE
+);
+
+
+INSERT INTO staff_records VALUES
+(101, 'Amit', 'Sharma', 'Data', 'Data Analyst', 70000, '2021-03-15'),
+(102, 'Neha', 'Patel', 'Data', 'Data Scientist', 90000, '2020-07-10'),
+(103, 'Rahul', 'Verma', 'HR', 'HR Manager', 60000, '2019-01-20'),
+(104, 'Pooja', 'Iyer', 'HR', 'Recruiter', 55000, '2022-06-01'),
+(105, 'Karan', 'Mehta', 'Finance', 'Financial Analyst', 75000, '2021-09-12'),
+(106, 'Sneha', 'Kulkarni', 'Finance', 'Accountant', 65000, '2020-11-30'),
+(107, 'Arjun', 'Reddy', 'Data', 'Backend Developer', 80000, '2018-05-25'),
+(108, 'Riya', 'Malhotra', 'Marketing', 'Marketing Manager', 72000, '2019-08-18'),
+(109, 'Vikram', 'Singh', 'Marketing', 'SEO Specialist', 58000, '2021-02-14'),
+(110, 'Ananya', 'Gupta', 'Data', 'QA Engineer', 62000, '2022-01-05');
+
+
+
+
+-- Database and table setup for Chapter 2 practice
+
+CREATE DATABASE analytics_practice;
+GO
+
+USE analytics_practice;
+GO
+
+CREATE TABLE staff_records (
+    staff_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    team VARCHAR(50),
+    role_title VARCHAR(50),
+    monthly_salary INT,
+    join_date DATE
+);
+
+INSERT INTO staff_records VALUES
+-- (data here)
+
+
+----(1)Display all data from staff_records.-----
+SELECT *
+FROM staff_records;
+
+--(2)--Display first name, last name, and team---
+SELECT first_name, last_name, team
+FROM staff_records;
+
+----(3)----Display staff_id and salary with alias
+SELECT staff_id, monthly_salary AS salary
+FROM staff_records;
+
+----(4)----Staff earning more than 70,000
+SELECT *
+FROM staff_records
+WHERE monthly_salary > 70000;
+
+
+-----(5)----Staff from the Data team
+SELECT *
+FROM staff_records
+WHERE team = 'Data';
+
+
+---(6) Staff who joined after 2020-01-01--
+SELECT *
+FROM staff_records
+WHERE join_date > '2020-01-01';
+
+
+----7. Finance staff earning more than 65,000---
+SELECT *
+FROM staff_records
+WHERE team = 'Finance'
+  AND monthly_salary > 65000;
+
+
+  ------8. Show unique teams---
+  SELECT DISTINCT team
+FROM staff_records;
+
+------9. Show unique role titles
+SELECT DISTINCT role_title
+FROM staff_records;
+
+
+
+------10. Order staff by salary (ascending)---
+SELECT *
+FROM staff_records
+ORDER BY monthly_salary;
+
+
+
+----11. Order staff by salary (descending)---
+SELECT *
+FROM staff_records
+ORDER BY monthly_salary DESC;
+
+
+---12. Order staff by join date (oldest first)---
+SELECT *
+FROM staff_records
+ORDER BY join_date;
+
+
+
+
+-----13. Top 3 highest-paid staff----
+SELECT TOP 3 *
+FROM staff_records
+ORDER BY monthly_salary DESC;
+
+---14. Top 5 oldest staff members----
+select top 5 *
+from staff_records
+order by join_date;
+
+----15. Average salary per team---
+select team,avg(monthly_salary) as avg_salary
+from staff_records
+group by team;
+
+----16. Number of staff per team----
+select team, count(*) as staff_count
+from staff_records
+group by team;
+
+-----17. Maximum salary per team----
+select team, max(monthly_salary) as max_salary
+from staff_records
+group by team;
+
+---18. Teams with more than 2 staff members
+select team, count(*) as staff_count
+from staff_records
+group by team
+having count(*) > 2;
+
+---19. Teams with average salary > 70,000
+select team, avg(monthly_salary) as average_salary
+from staff_records
+group by team
+having avg(monthly_salary) > 70000;
+
+
+---20. Teams with more than 1 staff earning above 60,000
+select team, count(*) as staff_count
+from staff_records
+where monthly_salary > 60000
+GROUP BY team
+HAVING COUNT(*) > 1;
+
+
+----21. Avg salary per team (> 65,000), ordered high to low
+SELECT team, AVG(monthly_salary) AS avg_salary
+FROM staff_records
+WHERE monthly_salary > 50000       -- row filter
+GROUP BY team
+HAVING AVG(monthly_salary) > 60000; -- group filter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
