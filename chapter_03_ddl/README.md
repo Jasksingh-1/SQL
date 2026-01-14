@@ -1,1 +1,2 @@
+This chapter covers the core Data Definition Language (DDL) commands used in SQL to define and manage database structures. It includes practical examples of CREATE statements for creating databases and tables, ALTER statements for modifying existing table structures such as adding, changing, or removing columns, and DROP statements for deleting tables or databases. These commands are essential for designing, maintaining, and controlling the schema of a database.
 
