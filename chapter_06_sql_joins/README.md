@@ -1,1 +1,2 @@
+This chapter covers SQL JOIN operations used to combine data from multiple tables based on related columns. It includes different types of joins such as INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN, anti joins, and CROSS JOIN, along with examples of joining multiple tables. Understanding joins is essential for working with relational databases, as real-world data is often distributed across multiple tables.
 
