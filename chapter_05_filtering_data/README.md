@@ -1,0 +1,1 @@
+This chapter focuses on filtering data in SQL using comparison operators and logical conditions. It covers the use of WHERE clause with comparison operators, logical operators such as AND, OR, and NOT, as well as BETWEEN, IN, and LIKE operators. These techniques are essential for retrieving specific subsets of data based on defined conditions.
