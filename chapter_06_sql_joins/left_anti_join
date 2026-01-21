@@ -1,0 +1,36 @@
+Topic: LEFT ANTI JOIN
+-- Description:
+-- LEFT ANTI JOIN returns rows from the left table
+-- that do NOT have matching rows in the right table.
+
+
+-- Question 1:
+-- Find employees without departments
+SELECT 
+    e.emp_name
+FROM employees e
+LEFT JOIN departments d
+ON e.dept_id = d.dept_id
+WHERE d.dept_id IS NULL;
+
+
+-- Question 2:
+-- Employees without departments with salary
+SELECT 
+    e.emp_name,
+    e.salary
+FROM employees e
+LEFT JOIN departments d
+ON e.dept_id = d.dept_id
+WHERE d.dept_id IS NULL;
+
+
+-- Question 3:
+-- Label employees missing a department
+SELECT 
+    e.emp_name,
+    'No Department Assigned' AS status
+FROM employees e
+LEFT JOIN departments d
+ON e.dept_id = d.dept_id
+WHERE d.dept_id IS NULL;
