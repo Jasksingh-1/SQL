@@ -1,0 +1,51 @@
+Topic: LEFT and RIGHT string functions
+Database: Azure SQL
+Table: support_tickets
+
+Purpose:
+Demonstrates how to extract characters from
+the beginning and end of strings for
+codes, abbreviations, and identifiers.
+*/
+
+--------------------------------------------------
+-- 1. First 2 letters of first name
+--------------------------------------------------
+SELECT
+    LEFT(TRIM(first_name), 2) AS first_name_code
+FROM support_tickets;
+
+--------------------------------------------------
+-- 2. Last 3 letters of last name
+--------------------------------------------------
+SELECT
+    RIGHT(TRIM(last_name), 3) AS last_name_code
+FROM support_tickets;
+
+--------------------------------------------------
+-- 3. City short code (first 3 letters)
+--------------------------------------------------
+SELECT
+    city,
+    LEFT(city, 3) AS city_code
+FROM support_tickets;
+
+--------------------------------------------------
+-- 4. Email domain suffix
+--------------------------------------------------
+SELECT
+    email_address,
+    RIGHT(email_address, 4) AS domain_suffix
+FROM support_tickets;
+
+--------------------------------------------------
+-- 5. Customer short identifier
+--    Format: ROH_SHA
+--------------------------------------------------
+SELECT
+    CONCAT(
+        UPPER(LEFT(TRIM(first_name), 3)),
+        '_',
+        UPPER(LEFT(TRIM(last_name), 3))
+    ) AS customer_short_id
+FROM support_tickets;
