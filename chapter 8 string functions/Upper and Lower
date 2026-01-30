@@ -1,0 +1,59 @@
+Topic: UPPER and LOWER string functions
+Database: Azure SQL
+Table: support_tickets
+
+Purpose:
+Demonstrates how to use UPPER() and LOWER() for
+data standardization, formatting, and case-insensitive filtering.
+*/
+
+--------------------------------------------------
+-- 1. Convert first names to UPPERCASE
+--------------------------------------------------
+SELECT
+    UPPER(TRIM(first_name)) AS first_name_upper
+FROM support_tickets;
+
+--------------------------------------------------
+-- 2. Convert last names to lowercase
+--------------------------------------------------
+SELECT
+    LOWER(TRIM(last_name)) AS last_name_lower
+FROM support_tickets;
+
+--------------------------------------------------
+-- 3. Full name in UPPERCASE (TRIM + CONCAT + UPPER)
+--------------------------------------------------
+SELECT
+    UPPER(CONCAT(TRIM(first_name), ' ', TRIM(last_name))) AS full_name_upper
+FROM support_tickets;
+
+--------------------------------------------------
+-- 4. Convert city names to UPPERCASE
+--------------------------------------------------
+SELECT
+    UPPER(city) AS city_upper
+FROM support_tickets;
+
+--------------------------------------------------
+-- 5. Convert email addresses to lowercase
+--------------------------------------------------
+SELECT
+    LOWER(email_address) AS email_lower
+FROM support_tickets;
+
+--------------------------------------------------
+-- 6. Case-insensitive filtering using UPPER
+--    Find all tickets from NEW YORK
+--------------------------------------------------
+SELECT *
+FROM support_tickets
+WHERE UPPER(city) = 'NEW YORK';
+
+--------------------------------------------------
+-- 7. Case-insensitive search:
+--    Find customers whose last name starts with 'S'
+--------------------------------------------------
+SELECT *
+FROM support_tickets
+WHERE UPPER(TRIM(last_name)) LIKE 'S%';
