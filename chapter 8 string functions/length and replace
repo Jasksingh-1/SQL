@@ -1,0 +1,56 @@
+Topic: LEN and REPLACE string functions
+Database: Azure SQL
+Table: support_tickets
+
+Purpose:
+Demonstrates how to measure string length and
+clean text using LEN() and REPLACE(), including
+creating standardized identifiers.
+*/
+
+--------------------------------------------------
+-- 1. Length of email addresses
+--------------------------------------------------
+SELECT
+    email_address,
+    LEN(email_address) AS email_length
+FROM support_tickets;
+
+--------------------------------------------------
+-- 2. Emails longer than 22 characters
+--------------------------------------------------
+SELECT *
+FROM support_tickets
+WHERE LEN(email_address) > 22;
+
+--------------------------------------------------
+-- 3. Replace email domains (Gmail & Yahoo)
+--------------------------------------------------
+SELECT
+    email_address,
+    REPLACE(
+        REPLACE(email_address, 'gmail.com', 'company.com'),
+        'yahoo.com',
+        'company.com'
+    ) AS updated_email
+FROM support_tickets;
+
+--------------------------------------------------
+-- 4. Replace spaces in city names with hyphens
+--------------------------------------------------
+SELECT
+    city,
+    REPLACE(city, ' ', '-') AS formatted_city
+FROM support_tickets;
+
+--------------------------------------------------
+-- 5. Create a standardized customer tag
+--    Format: ROHAN_SHARMA
+--------------------------------------------------
+SELECT
+    REPLACE(
+        UPPER(CONCAT(TRIM(first_name), '_', TRIM(last_name))),
+        ' ',
+        ''
+    ) AS customer_tag
+FROM support_tickets;
