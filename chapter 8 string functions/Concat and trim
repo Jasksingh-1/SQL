@@ -1,0 +1,65 @@
+-- Practice dataset for string functions
+
+CREATE TABLE support_tickets (
+    ticket_id INT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email_address VARCHAR(100),
+    issue_type VARCHAR(50),
+    city VARCHAR(50)
+);
+
+INSERT INTO support_tickets VALUES
+(101, '  Rohan', 'Sharma ', 'rohan.sharma@gmail.com', 'login issue', 'new york'),
+(102, 'Anita  ', ' Verma', 'anita.verma@yahoo.com', 'payment error', 'los angeles'),
+(103, 'mohit', 'singh', 'mohit.singh@outlook.com', 'account locked', 'chicago'),
+(104, 'Pooja', 'Mehta', 'pooja.mehta@gmail.com', 'password reset', 'new york'),
+(105, '  Karan', 'Patel ', 'karan.patel@gmail.com', 'login issue', 'san francisco');
+
+
+
+
+
+- CONCAT: Combine multiple strings into one
+
+-- Full name
+SELECT
+    CONCAT(TRIM(first_name), ' ', TRIM(last_name)) AS full_name
+FROM support_tickets;
+
+-- Ticket label
+SELECT    -------------- its always best practice to use trim to remove leading unneccesary spaces in the names and other data 
+    CONCAT(
+        TRIM(first_name),
+        ' ',
+        TRIM(last_name),
+        ' - ',
+        issue_type
+    ) AS ticket_label
+FROM support_tickets;
+
+
+
+
+
+-- TRIM: Remove leading and trailing spaces
+
+SELECT
+    TRIM(first_name) AS clean_first_name,
+    TRIM(last_name) AS clean_last_name
+FROM support_tickets;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
