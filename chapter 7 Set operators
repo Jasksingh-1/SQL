@@ -1,0 +1,133 @@
+/* ================================
+   DATABASE
+================================ */
+
+CREATE DATABASE SupportTicketsDB;
+GO
+
+USE SupportTicketsDB;
+GO
+
+
+/* ================================
+   TABLES
+================================ */
+
+CREATE TABLE Customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(50),
+    customer_type VARCHAR(20)
+);
+
+CREATE TABLE SupportTickets (
+    ticket_id INT PRIMARY KEY,
+    customer_id INT,
+    issue_type VARCHAR(50),
+    priority VARCHAR(10),
+    status VARCHAR(20)
+);
+
+CREATE TABLE Level1_Tickets (
+    ticket_id INT
+);
+
+CREATE TABLE Level2_Tickets (
+    ticket_id INT
+);
+
+
+/* ================================
+   INSERT DATA
+================================ */
+
+INSERT INTO Customers VALUES
+(1, 'Alice', 'Premium'),
+(2, 'Bob', 'Standard'),
+(3, 'Charlie', 'Premium'),
+(4, 'David', 'Standard'),
+(5, 'Eva', 'Premium');
+
+INSERT INTO SupportTickets VALUES
+(101, 1, 'Login Issue', 'High', 'Open'),
+(102, 2, 'Payment Failure', 'Medium', 'Closed'),
+(103, 3, 'App Crash', 'High', 'Open'),
+(104, 4, 'Password Reset', 'Low', 'Closed'),
+(105, 5, 'Data Sync Issue', 'Medium', 'Open');
+
+INSERT INTO Level1_Tickets VALUES
+(101),
+(102),
+(103),
+(104);
+
+INSERT INTO Level2_Tickets VALUES
+(103),
+(105);
+
+
+/* ================================
+   BASIC SELECT
+================================ */
+
+SELECT * FROM Customers;
+
+SELECT * FROM SupportTickets;
+
+
+/* ================================
+   WHERE
+================================ */
+
+SELECT *
+FROM SupportTickets
+WHERE status = 'Open';
+
+SELECT *
+FROM SupportTickets
+WHERE priority = 'High';
+
+
+/* ================================
+   SET OPERATORS
+================================ */
+
+-- UNION
+SELECT ticket_id FROM Level1_Tickets
+UNION
+SELECT ticket_id FROM Level2_Tickets;
+
+-- UNION ALL
+SELECT ticket_id FROM Level1_Tickets
+UNION ALL
+SELECT ticket_id FROM Level2_Tickets;
+
+-- INTERSECT
+SELECT ticket_id FROM Level1_Tickets
+INTERSECT
+SELECT ticket_id FROM Level2_Tickets;
+
+-- EXCEPT
+SELECT ticket_id FROM Level1_Tickets
+EXCEPT
+SELECT ticket_id FROM Level2_Tickets;
+
+
+/* ================================
+   ORDER BY
+================================ */
+
+SELECT *
+FROM SupportTickets
+ORDER BY priority;
+
+
+/* ================================
+   COUNT
+================================ */
+
+SELECT COUNT(*) AS total_tickets
+FROM SupportTickets;
+
+SELECT status, COUNT(*) AS count_by_status
+FROM SupportTickets
+GROUP BY status;
